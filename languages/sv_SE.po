@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Hemingway v1.46\n"
+"Project-Id-Version: Baskerville v1.00\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-08-06 10:49:01+0000\n"
+"PO-Revision-Date: 2014-06-07 11:56:11+0000\n"
 "Last-Translator: anders <anders@andersnoren.se>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,478 +20,486 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: 404.php:15
-#@ hemingway
+#: 404.php:13
+#@ baskerville
 msgid "Error 404"
 msgstr "Error 404"
 
-#: 404.php:21
-#@ hemingway
+#: 404.php:19
+#@ baskerville
 msgid "It seems like you have tried to open a page that doesn't exist. It could have been deleted, moved, or it never existed at all. You are welcome to search for what you are looking for with the form below."
 msgstr "Det verkar som att du har försökt öppna en sida som inte existerar. Den kan ha raderats, flyttats eller har aldrig existerat överhuvudtaget. Du är välkommen att söka efter det du letar efter i sökformuläret nedan."
 
+#: archive.php:8
+#@ baskerville
+msgid "Date"
+msgstr "Datum"
+
+#: archive.php:10
+#@ baskerville
+msgid "Month"
+msgstr "Månad"
+
 #: archive.php:12
-#, php-format
-#@ hemingway
-msgid "Date: %s"
-msgstr "Datum: %s"
+#@ baskerville
+msgid "Year"
+msgstr "År"
 
 #: archive.php:14
-#, php-format
-#@ hemingway
-msgid "Month: %s"
-msgstr "Månad: %s"
-
-#: archive.php:14
-#@ hemingway
-msgctxt "F = Month, Y = Year"
-msgid "F Y"
-msgstr "F Y"
+#@ baskerville
+msgid "Category"
+msgstr "Kategori"
 
 #: archive.php:16
-#, php-format
-#@ hemingway
-msgid "Year: %s"
-msgstr "År: %s"
+#@ baskerville
+msgid "Tag"
+msgstr "Etikett"
 
-#: archive.php:16
-#@ hemingway
-msgctxt "Y = Year"
-msgid "Y"
-msgstr "Y"
+#: archive.php:19
+#@ baskerville
+msgid "Author"
+msgstr "Författare"
 
-#: archive.php:18
-#, php-format
-#@ hemingway
-msgid "Category: %s"
-msgstr "Kategori: %s"
-
-#: archive.php:20
-#, php-format
-#@ hemingway
-msgid "Tag: %s"
-msgstr "Etikett: %s"
-
-#: archive.php:23
-#, php-format
-#@ hemingway
-msgid "Author: %s"
-msgstr "Författare: %s"
-
-#: archive.php:25
-#@ hemingway
+#: archive.php:21
+#@ baskerville
 msgid "Archive"
 msgstr "Arkiv"
 
-#: archive.php:33
-#: search.php:20
-#: search.php:71
-#, php-format
-#@ hemingway
-msgid "(page %s of %s)"
-msgstr "(sida %s av %s)"
-
-#: archive.php:69
-#@ hemingway
-msgid "Older<span> posts</span>"
-msgstr "Äldre <span> inlägg</span>"
-
-#: archive.php:71
-#@ hemingway
-msgid "Newer<span> posts</span>"
-msgstr "Nyare <span>inlägg</span>"
-
-#: comments.php:14
-#@ hemingway
+#: comments.php:16
+#@ baskerville
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "kommentar"
-msgstr[1] "kommentarer"
+msgstr[0] "Kommentar"
+msgstr[1] "Kommentarer"
 
-#: comments.php:31
-#@ hemingway
+#: comments.php:43
+#@ baskerville
 msgid "Pingback"
 msgid_plural "Pingbacks"
 msgstr[0] "Pingback"
 msgstr[1] "Pingbacks"
 
-#: comments.php:49
-#@ hemingway
-msgid "&laquo; Older<span> Comments</span>"
-msgstr "&laquo; Äldre<span> kommentarer</span>"
-
-#: comments.php:51
-#@ hemingway
-msgid "Newer<span> Comments</span> &raquo;"
-msgstr "Nyare<span> kommentarer</span> &raquo;"
-
-#: comments.php:65
-#@ hemingway
+#: comments.php:77
+#@ baskerville
 msgid "Comments are closed."
-msgstr "Kommentarsfunktionen är avstängd."
+msgstr "Kommentarsfältet är stängt."
 
-#: comments.php:72
-#@ hemingway
+#: comments.php:84
+#@ baskerville
 msgid "Your email address will not be published."
 msgstr "Din e-postadress kommer inte att publiceras."
 
-#: comments.php:81
-#@ hemingway
+#: comments.php:93
+#@ baskerville
 msgid "Name"
 msgstr "Namn"
 
-#: comments.php:84
-#@ hemingway
+#: comments.php:96
+#@ baskerville
 msgid "Email"
-msgstr "E-post"
+msgstr "E-postadress"
 
-#: comments.php:87
-#@ hemingway
+#: comments.php:99
+#@ baskerville
 msgid "Website"
 msgstr "Webbplats"
 
-#: content-aside.php:9
-#: content-quote.php:9
-#: content-video.php:47
-#: content.php:47
-#@ hemingway
-msgid "Sticky"
-msgstr "Klistrat"
-
-#: content-aside.php:17
-#: content-quote.php:17
-#: content-video.php:55
-#: content.php:55
-#: functions.php:295
-#: page.php:49
-#: single.php:83
-#: template-archives.php:127
-#: template-fullwidth.php:55
-#: template-nosidebar.php:55
-#@ hemingway
-msgid "Edit"
-msgstr "Redigera"
-
-#: content-video.php:41
-#: content.php:41
-#: single.php:77
-#@ hemingway
-msgid "0 Comments"
-msgstr "0 kommentarer"
-
-#: content-video.php:41
-#: content.php:41
-#: single.php:77
-#@ hemingway
-msgid "1 Comment"
-msgstr "1 kommentar"
-
-#: content-video.php:41
-#: content.php:41
-#: single.php:77
-#@ hemingway
-msgid "% Comments"
-msgstr "% kommentarer"
-
-#: content.php:7
-#@ hemingway
+#: content-aside.php:11
+#: content-audio.php:5
+#: content-gallery.php:5
+#: content-image.php:5
+#: content-image.php:13
+#: content-link.php:8
+#: content-quote.php:8
+#: content-video.php:5
+#: content.php:5
+#@ baskerville
 msgid "Sticky post"
 msgstr "Klistrat inlägg"
 
+#: footer.php:27
 #: searchform.php:2
-#@ hemingway
+#@ baskerville
 msgid "Search form"
 msgstr "Sökformulär"
 
-#: footer.php:65
+#: footer.php:62
+#: sidebar.php:27
+#@ baskerville
+msgid "Latest posts"
+msgstr "Senaste inläggen"
+
+#: footer.php:103
+#: sidebar.php:49
+#@ baskerville
+msgid "Text widget"
+msgstr "Textwidget"
+
+#: footer.php:104
+#: sidebar.php:53
+#@ baskerville
+msgid "These widgets are displayed because you haven't added any widgets of your own yet. You can do so at Appearance > Widgets in the WordPress settings."
+msgstr "Dessa widgets visas för att du inte har lagt till några egna widgets ännu. Du kan göra det på Utseende > Widgets i WordPress-inställningarna."
+
+#: footer.php:125
 #, php-format
-#@ hemingway
+#@ baskerville
+msgid "Powered by <a href=\"%s\">WordPress</a>"
+msgstr "Drivs på <a href=\"%s\">WordPress</a>"
+
+#: footer.php:131
+#, php-format
+#@ baskerville
 msgid "Theme by <a href=\"%s\">Anders Noren</a>"
 msgstr "Tema av <a href=\"%s\">Anders Noren</a>"
 
-#: footer.php:65
-#@ hemingway
+#: footer.php:131
+#@ baskerville
 msgid "To the top"
 msgstr "Till toppen"
 
-#: footer.php:65
-#@ hemingway
+#: footer.php:131
+#@ baskerville
 msgid "Up"
 msgstr "Upp"
 
-#: functions.php:84
-#@ hemingway
+#: functions.php:91
+#@ baskerville
 msgid "Footer A"
-msgstr "Footer A"
-
-#: functions.php:86
-#@ hemingway
-msgid "Widgets in this area will be shown in the left column in the footer."
-msgstr "Widgets i den här sektionen visas i den vänsta kolumnen i sidfoten."
+msgstr "Sidfot A"
 
 #: functions.php:93
-#@ hemingway
-msgid "Footer B"
-msgstr "Footer B"
+#@ baskerville
+msgid "Widgets in this area will be shown in the left column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i den vänstra kolumnen i sidfoten."
 
-#: functions.php:95
-#@ hemingway
-msgid "Widgets in this area will be shown in the middle column in the footer."
-msgstr "Widgets i den här sektionen visas i mittenkolumnen i sidfoten."
+#: functions.php:100
+#@ baskerville
+msgid "Footer B"
+msgstr "Sidfot B"
 
 #: functions.php:102
-#@ hemingway
-msgid "Footer C"
-msgstr "Footer C"
+#@ baskerville
+msgid "Widgets in this area will be shown in the middle column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i mittenkolumnen i sidfoten."
 
-#: functions.php:104
-#@ hemingway
-msgid "Widgets in this area will be shown in the right column in the footer."
-msgstr "Widgets i den här sektionen visas i den högra kolumnen i sidfoten."
+#: functions.php:109
+#@ baskerville
+msgid "Footer C"
+msgstr "Sidfot C"
 
 #: functions.php:111
-#@ hemingway
+#@ baskerville
+msgid "Widgets in this area will be shown in the right column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i den högra kolumnen i sidfoten."
+
+#: functions.php:118
+#@ baskerville
 msgid "Sidebar"
-msgstr "Sidomeny"
+msgstr "Sidebar"
 
-#: functions.php:113
-#@ hemingway
+#: functions.php:120
+#@ baskerville
 msgid "Widgets in this area will be shown in the sidebar."
-msgstr "Widgets i den här sektionen visas i sidomenyn."
+msgstr "Widgets i det här utrymmet kommer att visas i sidebaren."
 
-#: functions.php:148
+#: functions.php:155
 #, php-format
-#@ hemingway
+#@ baskerville
 msgid "Page %s"
 msgstr "Sida %s"
 
-#: functions.php:195
-#@ hemingway
-msgid "Continue reading"
-msgstr "Fortsätt läsa"
-
-#: functions.php:254
-#@ hemingway
+#: functions.php:342
+#@ baskerville
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: functions.php:254
-#@ hemingway
+#: functions.php:342
+#@ baskerville
 msgid "(Edit)"
 msgstr "(Redigera)"
 
-#: functions.php:274
-#@ hemingway
-msgid "(Post author)"
-msgstr "(Inläggsförfattare)"
+#: functions.php:368
+#: functions.php:392
+#@ baskerville
+msgid "Edit"
+msgstr "Redigera"
 
-#: functions.php:287
-#@ hemingway
-msgid "Awaiting moderation"
-msgstr "Inväntar modererering"
-
-#: functions.php:297
-#@ hemingway
+#: functions.php:370
+#: functions.php:394
+#@ baskerville
 msgid "Reply"
 msgstr "Svara"
 
-#: functions.php:315
-#@ hemingway
-msgid "Video URL (video post format)"
-msgstr "Videoadress (för video-inläggsformatet)"
+#: functions.php:382
+#@ baskerville
+msgid "Awaiting moderation"
+msgstr "Inväntar moderering"
 
-#: image.php:79
-#@ hemingway
-msgid "&laquo; Previous<span> attachment</span>"
-msgstr "&laquo; Föregående<span> bilaga</span>"
+#: functions.php:433
+#@ baskerville
+msgid "Show email"
+msgstr "Visa e-postadress"
 
-#: image.php:80
-#@ hemingway
-msgid "Next<span> attachment</span> &raquo;"
-msgstr "Nästa<span> bilaga</span> &raquo;"
+#: functions.php:437
+#@ baskerville
+msgid "Check if you want to display your email address in single posts and the contributors page template."
+msgstr "Bocka för om du vill visa din e-postadress i enskilda inlägg och i skribenter-sidmallen."
 
-#: image.php:92
-#: page.php:67
-#: single.php:147
-#: template-archives.php:143
-#: template-fullwidth.php:75
-#: template-nosidebar.php:75
-#@ hemingway
+#: functions.php:461
+#: widgets/video-widget.php:70
+#@ baskerville
+msgid "Video URL"
+msgstr "Adress till video"
+
+#: functions.php:462
+#@ baskerville
+msgid "Audio URL"
+msgstr "Adress till ljudfil"
+
+#: functions.php:463
+#@ baskerville
+msgid "Quote content"
+msgstr "Citatets innehåll"
+
+#: functions.php:464
+#@ baskerville
+msgid "Quote attribution"
+msgstr "Citatets upphovsman"
+
+#: functions.php:465
+#@ baskerville
+msgid "Link URL"
+msgstr "Länkadress"
+
+#: functions.php:466
+#@ baskerville
+msgid "Link title"
+msgstr "Länktitel"
+
+#: functions.php:664
+#: functions.php:674
+#@ baskerville
+msgid "Logo"
+msgstr "Logotyp"
+
+#: image.php:34
+#@ baskerville
+msgid "About the attachment"
+msgstr "Om bilagan"
+
+#: image.php:57
+#: page.php:61
+#: single.php:265
+#: template-archives.php:133
+#: template-fullwidth.php:67
+#: template-nosidebar.php:67
+#@ baskerville
 msgid "We couldn't find any posts that matched your query. Please try again."
-msgstr "Vi kunde inte hitta några inlägg som matchade din sökning. Vänligen försök igen."
+msgstr "Vi kunde inte hitta några inlägg som matchar din sökning. Vänligen försök igen."
 
-#: index.php:21
+#: index.php:15
 #, php-format
-#@ hemingway
+#@ baskerville
 msgid "Page %s of %s"
 msgstr "Sida %s av %s"
 
-#: index.php:47
-#: search.php:46
-#@ hemingway
-msgid "&laquo; Older<span> posts</span>"
-msgstr "&laquo; Äldre<span> inlägg</span>"
+#: search.php:7
+#@ baskerville
+msgid "Search results"
+msgstr "Sökresultat"
 
-#: index.php:49
-#: search.php:48
-#@ hemingway
-msgid "Newer<span> posts</span> &raquo;"
-msgstr "Nyare<span> inlägg</span> &raquo;"
-
-#: search.php:13
-#: search.php:64
-#@ hemingway
-msgid "Search results:"
-msgstr "Sökresultat:"
-
-#: search.php:87
-#@ hemingway
+#: search.php:55
+#@ baskerville
 msgid "No results. Try again, would you kindly?"
 msgstr "Inga resultat. Försök igen, är du snäll?"
 
 #: searchform.php:3
-#@ hemingway
+#@ baskerville
 msgid "Search"
 msgstr "Sök"
 
-#: single.php:115
-#@ hemingway
+#: single.php:179
+#@ baskerville
+msgid "Author archive"
+msgstr "Författararkiv"
+
+#: single.php:187
+#@ baskerville
+msgid "Author website"
+msgstr "Författarens webbplats"
+
+#: single.php:205
+#@ baskerville
+msgid "on Twitter"
+msgstr "på Twitter"
+
+#: single.php:237
+#@ baskerville
 msgid "Previous post:"
 msgstr "Föregående inlägg:"
 
-#: single.php:117
-#@ hemingway
+#: single.php:237
+#@ baskerville
 msgid "Previous post"
 msgstr "Föregående inlägg"
 
-#: single.php:128
-#@ hemingway
+#: single.php:245
+#@ baskerville
 msgid "Next post:"
 msgstr "Nästa inlägg:"
 
-#: single.php:130
-#@ hemingway
+#: single.php:245
+#@ baskerville
 msgid "Next post"
 msgstr "Nästa inlägg"
 
 #: template-archives.php:57
-#@ hemingway
+#@ baskerville
 msgid "Last 30 Posts"
 msgstr "Senaste 30 inläggen"
 
 #: template-archives.php:71
-#@ hemingway
+#@ baskerville
 msgid "Archives by Categories"
 msgstr "Kategoriarkiv"
 
 #: template-archives.php:77
-#@ hemingway
+#@ baskerville
 msgid "Archives by Tags"
 msgstr "Etikettarkiv"
 
 #: template-archives.php:84
 #, php-format
-#@ hemingway
+#@ baskerville
 msgid "View all posts in %s"
 msgstr "Visa alla inlägg i %s"
 
 #: template-archives.php:95
-#@ hemingway
+#@ baskerville
 msgid "Contributors"
 msgstr "Författare"
 
 #: template-archives.php:101
-#@ hemingway
+#@ baskerville
 msgid "Archives by Year"
-msgstr "År"
+msgstr "Arkiv för årtal"
 
 #: template-archives.php:107
-#@ hemingway
+#@ baskerville
 msgid "Archives by Month"
-msgstr "Månader"
+msgstr "Arkiv för månader"
 
 #: template-archives.php:113
-#@ hemingway
+#@ baskerville
 msgid "Archives by Day"
-msgstr "Datum"
+msgstr "Arkiv för dagar"
+
+#: template-contributors.php:70
+#@ default
+msgid "posts"
+msgstr ""
 
 #: widgets/dribbble-widget.php:10
-#@ hemingway
+#@ baskerville
 msgid "Displays your latest Dribbble photos."
 msgstr "Visar dina senaste Dribbble-bilder."
 
-#: widgets/dribbble-widget.php:52
-#, php-format
-#@ hemingway
-msgid "Follow %s on Dribbble &raquo;"
-msgstr "Följ %s på Dribbble &raquo;"
-
 #: widgets/dribbble-widget.php:79
-#: widgets/flickr-widget.php:54
+#: widgets/flickr-widget.php:58
 #: widgets/video-widget.php:64
-#@ hemingway
+#@ baskerville
 msgid "Title"
 msgstr "Titel"
 
 #: widgets/dribbble-widget.php:85
-#@ hemingway
+#@ baskerville
 msgid "Dribbble username"
 msgstr "Dribbble-användarnamn"
 
 #: widgets/dribbble-widget.php:91
-#: widgets/flickr-widget.php:66
-#@ hemingway
+#: widgets/flickr-widget.php:70
+#@ baskerville
 msgid "Number of images to display:"
 msgstr "Antal bilder att visa:"
 
 #: widgets/flickr-widget.php:8
-#@ hemingway
+#@ baskerville
 msgid "Displays your latest Flickr photos."
-msgstr "Visar dina senaste Flickr-bilder."
+msgstr "Visar dina senaste Flickr-fotografier."
 
-#: widgets/flickr-widget.php:32
-#@ hemingway
-msgid "More on Flickr &raquo;"
-msgstr "Mer på Flickr &raquo;"
-
-#: widgets/flickr-widget.php:60
-#@ hemingway
+#: widgets/flickr-widget.php:64
+#@ baskerville
 msgid "Flickr ID (use <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</a>):"
 msgstr "Flickr-ID (använd <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</a>):"
 
 #: widgets/video-widget.php:8
-#@ hemingway
+#@ baskerville
 msgid "Displays a video of your choosing."
-msgstr "Låter dig visa ett videoklipp."
+msgstr "Visar ett valfritt videoklipp."
 
-#: widgets/video-widget.php:70
-#@ hemingway
-msgid "Video URL"
-msgstr "Videoklippets adress"
+#: archive.php:62
+#: index.php:53
+#: search.php:39
+#@ baskerville
+msgid "Older posts"
+msgstr "Äldre inlägg"
 
-#: functions.php:363
-#@ hemingway
-msgid "Hemingway Options"
-msgstr "Hemingway-inställningar"
+#: archive.php:64
+#: index.php:55
+#: search.php:41
+#@ baskerville
+msgid "Newer posts"
+msgstr "Nyare inlägg"
 
-#: functions.php:366
-#@ hemingway
-msgid "Allows you to customize some settings for Hemingway."
-msgstr "Låter dig ställa in temainställningar för Hemingway."
+#: comments.php:61
+#@ baskerville
+msgid "Older Comments"
+msgstr "Äldre kommentarer"
 
-#: functions.php:371
-#: functions.php:401
-#@ hemingway
-msgid "Logo"
-msgstr "Logotyp"
+#: comments.php:63
+#@ baskerville
+msgid "Newer Comments"
+msgstr "Nyare kommentarer"
 
-#: functions.php:393
-#@ hemingway
-msgid "Accent Color"
-msgstr "Accentfärg"
+#: functions.php:220
+#@ baskerville
+msgid "Continue Reading"
+msgstr "Fortsätt läsa"
 
-#: functions.php:373
-#@ hemingway
-msgid "Upload a logo to replace the default site name and description in the header"
-msgstr "Ladda upp en logotyp för att ersätta sidtiteln och -beskrivningen i sidhuvudet"
+#: functions.php:656
+#@ baskerville
+msgid "Baskerville Options"
+msgstr "Baskerville-alternativ"
+
+#: functions.php:659
+#@ baskerville
+msgid "Allows you to customize some settings for Baskerville."
+msgstr "Låter dig ändra Baskervilles inställningar."
+
+#: widgets/dribbble-widget.php:52
+#, php-format
+#@ baskerville
+msgid "Follow %s on Dribbble"
+msgstr "Följ %s på Dribbble"
+
+#: widgets/flickr-widget.php:36
+#@ baskerville
+msgid "More on Flickr"
+msgstr "Mer på Flickr"
+
+#: single.php:249
+#@ baskerville
+msgid "Edit post"
+msgstr "Redigera inlägg"
+
+#: comments.php:22
+#@ baskerville
+msgid "Add yours"
+msgstr "Skriv kommentar"
+
+#: header.php:25
+#@ baskerville
+msgid "Type and press enter"
+msgstr "Skriv och tryck enter"
 

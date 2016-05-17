@@ -1,109 +1,69 @@
 <?php get_header(); ?>
 
-	<div class="wrapper section-inner">
+	<div class="wrapper section medium-padding">
 	
-		<div class="content left">
-
-		<?php if ( have_posts() ) : ?>
-		
-			<div class="page-title">
+		<div class="page-title section-inner">
 			
-				<h4>
-			
-					<?php _e( 'Search results:', 'hemingway'); echo ' "' . get_search_query() . '"'; ?>
+				<h5><?php _e( 'Search results', 'baskerville'); ?> </h5>
 				
-					<?php
-					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-					
-					if ( "1" < $wp_query->max_num_pages ) : ?>
-					
-						<span><?php printf( __('(page %s of %s)', 'hemingway'), $paged, $wp_query->max_num_pages ); ?></span>
-					
-					<?php endif; ?>
-				
-				</h4>
+				<h3><?php echo ' "' . get_search_query() . '"'; ?></h3>
 				
 			</div>
-					
-			<div class="posts">
 	
-				<?php while ( have_posts() ) : the_post(); ?>
-				
-					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-								
-						<?php get_template_part( 'content', get_post_format() ); ?>						
+		<div class="content section-inner">
+
+			<?php if ( have_posts() ) : ?>
+						
+				<div class="posts">
+		
+					<?php while ( have_posts() ) : the_post(); ?>
 					
-					</div> <!-- /post -->
+						<div class="post-container">
 					
-				<?php endwhile; ?>
+							<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+										
+								<?php get_template_part( 'content', get_post_format() ); ?>						
 							
-			</div> <!-- /posts -->
-			
-			<?php if ( $wp_query->max_num_pages > 1 ) : ?>
-			
-				<div class="post-nav archive-nav">
-				
-					<?php echo get_next_posts_link( __('&laquo; Older<span> posts</span>', 'hemingway')); ?>
+							</div> <!-- /post -->
+						
+						</div> <!-- /post-container -->
+						
+					<?php endwhile; ?>
 								
-					<?php echo get_previous_posts_link( __('Newer<span> posts</span> &raquo;', 'hemingway')); ?>
-					
-					<div class="clear"></div>
-					
-				</div>
+				</div> <!-- /posts -->
 				
-			<?php endif; ?>
-	
-		<?php else : ?>
-			
-			<div class="posts">
-			
-				<div class="page-title">
-			
-					<h4>
+				<?php if ( $wp_query->max_num_pages > 1 ) : ?>
 				
-						<?php echo _e( 'Search results:', 'hemingway') . ' "' . get_search_query() . '"'; ?>
+					<div class="archive-nav">
 					
-						<?php
-						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+						<?php echo get_next_posts_link( '&laquo; ' . __('Older posts', 'baskerville')); ?>
 						
-						if ( "1" < $wp_query->max_num_pages ) : ?>
+						<?php echo get_previous_posts_link( __('Newer posts', 'baskerville') . ' &raquo;'); ?>
 						
-							<span><?php printf( __('(page %s of %s)', 'hemingway'), $paged, $wp_query->max_num_pages ); ?></span>
+						<div class="clear"></div>
 						
-						<?php endif; ?>
-						
-					</h4>
+					</div>
 					
-				</div>
+				<?php endif; ?>
+		
+			<?php else : ?>
+				
+				<div class="section-inner">
+			
+					<div class="post-content">
+					
+						<p><?php _e('No results. Try again, would you kindly?', 'baskerville'); ?></p>
+											
+					</div> <!-- /post-content -->
+				
+				</div> <!-- /section-inner -->
 				
 				<div class="clear"></div>
-			
-				<div class="post">
-				
-					<div class="content-inner">
-				
-						<div class="post-content">
-						
-							<p><?php _e('No results. Try again, would you kindly?', 'hemingway'); ?></p>
 							
-							<?php get_search_form(); ?>
-						
-						</div> <!-- /post-content -->
-					
-					</div> <!-- /content-inner -->
-					
-					<div class="clear"></div>
-				
-				</div> <!-- /post -->
-			
-			</div> <!-- /posts -->
-		
-		<?php endif; ?>
+			<?php endif; ?>
 		
 		</div> <!-- /content -->
-		
-		<?php get_sidebar(); ?>
-		
+				
 		<div class="clear"></div>
 		
 	</div> <!-- /wrapper -->

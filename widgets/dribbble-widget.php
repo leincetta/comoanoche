@@ -1,16 +1,16 @@
 <?php 
 
-// Dribbble widget for hemingway WordPress theme
+// Dribbble widget for baskerville WordPress theme
 
 include_once(ABSPATH . WPINC . '/feed.php');
 
-class hemingway_dribbble_widget extends WP_Widget {
+class baskerville_dribbble_widget extends WP_Widget {
 
 	function __construct() {
-        $widget_ops = array( 'classname' => 'hemingway_dribbble_widget', 'description' => __('Displays your latest Dribbble photos.', 'hemingway') );
-        parent::__construct( 'hemingway_dribbble_widget', __('Dribbble Widget','hemingway'), $widget_ops );
+        $widget_ops = array( 'classname' => 'baskerville_dribbble_widget', 'description' => __('Displays your latest Dribbble photos.', 'baskerville') );
+        parent::__construct( 'baskerville_dribbble_widget', __('Dribbble Widget','baskerville'), $widget_ops );
     }
-
+	
 	function widget($args, $instance) {
 	
 		extract($args);
@@ -50,7 +50,7 @@ class hemingway_dribbble_widget extends WP_Widget {
 																																			 	
 					<?php endforeach; ?>
 					
-					<p class="widgetmore"><a href="http://www.dribbble.com/<?php echo $dribbble_user; ?>"><?php printf( __('Follow %s on Dribbble &raquo;','hemingway'), $dribbble_username); ?></a></p>
+					<p class="widgetmore"><a href="http://www.dribbble.com/<?php echo $dribbble_user; ?>"><?php printf( __('Follow %s on Dribbble','baskerville') . ' &raquo;', $dribbble_username); ?></a></p>
 				
 				</div>
 							
@@ -77,23 +77,23 @@ class hemingway_dribbble_widget extends WP_Widget {
 		?>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'hemingway'); ?>:
+			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'baskerville'); ?>:
 			<input id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" class="widefat" value="<?php echo $widget_title; ?>" /></label>
 		</p>
 				
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('dribbble_username'); ?>"><?php  _e('Dribbble username', 'hemingway'); ?>:
+			<label for="<?php echo $this->get_field_id('dribbble_username'); ?>"><?php  _e('Dribbble username', 'baskerville'); ?>:
 			<input id="<?php echo $this->get_field_id('dribbble_username'); ?>" name="<?php echo $this->get_field_name('dribbble_username'); ?>" type="text" class="widefat" value="<?php echo $dribbble_username; ?>" /></label>
 		</p>
 		
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('dribbble_number'); ?>"><?php _e('Number of images to display:', 'hemingway'); ?>
+			<label for="<?php echo $this->get_field_id('dribbble_number'); ?>"><?php _e('Number of images to display:', 'baskerville'); ?>
 			<input id="<?php echo $this->get_field_id('dribbble_number'); ?>" name="<?php echo $this->get_field_name('dribbble_number'); ?>" type="text" class="widefat" value="<?php echo $dribbble_number; ?>" /></label>
 		</p>
 		
 		<?php
 	}
 }
-register_widget('hemingway_dribbble_widget'); ?>
+register_widget('baskerville_dribbble_widget'); ?>

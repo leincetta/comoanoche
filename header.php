@@ -15,51 +15,126 @@
 
 	<body <?php body_class(); ?>>
 
-		<div class="big-wrapper">
 
-			<div class="header-cover section bg-dark-light no-padding">
 
-				<div class="header section" style="background-image: url(<?php if (get_header_image() != '') : ?><?php header_image(); ?><?php else : ?><?php echo get_template_directory_uri() . '/images/header.jpg'; ?><?php endif; ?>);">
+		<div class="header section small-padding bg-dark bg-image" style="background-image: url(<?php if (get_header_image() != '') : ?><?php header_image(); ?><?php else : ?><?php echo get_template_directory_uri() . '/images/header.jpg'; ?><?php endif; ?>);">
 
-					<div class="header-inner section-inner">
+			<div class="cover"></div>
 
-						<?php if ( get_theme_mod( 'hemingway_logo' ) ) : ?>
+			<div class="navigation section no-padding bg-dark">
 
-							<div class='blog-logo'>
+				<div class="navigation-inner section-inner">
 
-						        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>' rel='home'>
-						        	<img src='<?php echo esc_url( get_theme_mod( 'hemingway_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>'>
-						        </a>
+					<div class="nav-toggle fleft hidden">
 
-						    </div> <!-- /blog-logo -->
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
 
-						<?php elseif ( get_bloginfo( 'description' ) || get_bloginfo( 'title' ) ) : ?>
+						<div class="clear"></div>
 
-							<div class="blog-info">
+					</div>
 
-								<h2 class="blog-title">
-									<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
-								</h2>
+					<ul class="main-menu">
 
-								<?php if ( get_bloginfo( 'description' ) ) { ?>
+						<?php if ( has_nav_menu( 'primary' ) ) {
 
-									<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
+							wp_nav_menu( array(
 
-								<?php } ?>
+								'container' => '',
+								'items_wrap' => '%3$s',
+								'theme_location' => 'primary',
+								'walker' => new baskerville_nav_walker
 
-							</div> <!-- /blog-info -->
+							) ); } else {
 
-						<?php endif; ?>
+							wp_list_pages( array(
 
-					</div> <!-- /header-inner -->
+								'container' => '',
+								'title_li' => ''
 
-				</div> <!-- /header -->
+							));
 
-			</div> <!-- /bg-dark -->
+						} ?>
 
-			<div class="ustream-player">
+					 </ul> <!-- /main-menu -->
 
-				<iframe
+					 <a class="search-toggle fright" href="#"></a>
+
+					 <div class="clear"></div>
+
+				</div> <!-- /navigation-inner -->
+
+			</div> <!-- /navigation -->
+
+			<div class="mobile-navigation section bg-graphite no-padding hidden">
+
+				<ul class="mobile-menu">
+
+					<?php if ( has_nav_menu( 'primary' ) ) {
+
+						wp_nav_menu( array(
+
+							'container' => '',
+							'items_wrap' => '%3$s',
+							'theme_location' => 'primary',
+							'walker' => new baskerville_nav_walker
+
+						) ); } else {
+
+						wp_list_pages( array(
+
+							'container' => '',
+							'title_li' => ''
+
+						));
+
+					} ?>
+
+				 </ul> <!-- /main-menu -->
+
+			</div> <!-- /mobile-navigation -->
+
+
+			<div class="header-search-block bg-graphite hidden">
+
+				<?php get_search_form(); ?>
+
+			</div> <!-- /header-search-block -->
+
+			<div class="header-inner section-inner">
+
+				<?php if ( get_theme_mod( 'baskerville_logo' ) ) : ?>
+
+					<div class="blog-logo">
+
+				        <a class="logo" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>' rel='home'>
+				        	<img src='<?php echo esc_url( get_theme_mod( 'baskerville_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>'>
+				        </a>
+
+					</div>
+
+				<?php elseif ( get_bloginfo( 'description' ) || get_bloginfo( 'title' ) ) : ?>
+
+						<h1 class="blog-title">
+							<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
+						</h1>
+
+						<?php if ( get_bloginfo( 'description' ) ) { ?>
+
+							<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
+
+						<?php } ?>
+
+				<?php endif; ?>
+
+			</div> <!-- /header-inner -->
+
+		</div> <!-- /header -->
+
+		<div class="ustream-player">
+
+			<iframe
 					width="100%"
 					height="130"
 					src="http://www.ustream.tv/embed/22250656?html5ui&showtitle=false"
@@ -68,94 +143,6 @@
 					scrolling="no"
 					frameborder="0"
 					style="border: 0 none transparent;">
-				</iframe>
+			</iframe>
 
-			</div>
-
-			<div class="navigation section no-padding bg-dark">
-
-				<div class="navigation-inner section-inner">
-
-					<div class="toggle-container hidden">
-
-						<div class="nav-toggle toggle">
-
-							<div class="bar"></div>
-							<div class="bar"></div>
-							<div class="bar"></div>
-
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="search-toggle toggle">
-
-							<div class="metal"></div>
-							<div class="glass"></div>
-							<div class="handle"></div>
-
-						</div>
-
-						<div class="clear"></div>
-
-					</div> <!-- /toggle-container -->
-
-					<div class="blog-search hidden">
-
-						<?php get_search_form(); ?>
-
-					</div>
-
-					<ul class="blog-menu">
-
-						<?php if ( has_nav_menu( 'primary' ) ) {
-
-							wp_nav_menu( array(
-
-								'container' => '',
-								'items_wrap' => '%3$s',
-								'theme_location' => 'primary',
-								'walker' => new hemingway_nav_walker
-
-							) ); } else {
-
-							wp_list_pages( array(
-
-								'container' => '',
-								'title_li' => ''
-
-							));
-
-						} ?>
-
-						<div class="clear"></div>
-
-					 </ul>
-
-					 <ul class="mobile-menu">
-
-						<?php if ( has_nav_menu( 'primary' ) ) {
-
-							wp_nav_menu( array(
-
-								'container' => '',
-								'items_wrap' => '%3$s',
-								'theme_location' => 'primary',
-								'walker' => new hemingway_nav_walker
-
-							) ); } else {
-
-							wp_list_pages( array(
-
-								'container' => '',
-								'title_li' => ''
-
-							));
-
-						} ?>
-
-					 </ul>
-
-				</div> <!-- /navigation-inner -->
-
-			</div> <!-- /navigation -->
+		</div>

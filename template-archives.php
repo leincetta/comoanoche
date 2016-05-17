@@ -6,12 +6,12 @@ Template Name: Archive template
 
 <?php get_header(); ?>
 
-<div class="wrapper section-inner">						
+<div class="wrapper section medium-padding">						
 
-	<div class="content left">
-			
-		<div class="posts">
-	
+	<div class="section-inner">
+
+		<div class="content fleft">
+					
 			<div class="post">
 			
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -42,7 +42,7 @@ Template Name: Archive template
 													
 					<div class="post-header">
 												
-					    <h2 class="post-title"><?php the_title(); ?></h2>
+					    <h1 class="post-title"><?php the_title(); ?></h1>
 					    				    
 				    </div> <!-- /post-header -->
 				   				        			        		                
@@ -54,7 +54,7 @@ Template Name: Archive template
 					
 							<div class="archive-col">
 												
-								<h3><?php _e('Last 30 Posts', 'hemingway') ?></h3>
+								<h3><?php _e('Last 30 Posts', 'baskerville') ?></h3>
 								            
 					            <ul>
 						            <?php $archive_30 = get_posts('numberposts=30');
@@ -68,20 +68,20 @@ Template Name: Archive template
 						            <?php endforeach; ?>
 					            </ul>
 					            
-					            <h3><?php _e('Archives by Categories', 'hemingway') ?></h3>
+					            <h3><?php _e('Archives by Categories', 'baskerville') ?></h3>
 					            
 					            <ul>
-					                <?php wp_list_categories( 'title_li=', 'hemingway' ); ?>
+					                <?php wp_list_categories( 'title_li=', 'baskerville' ); ?>
 					            </ul>
 					            
-					            <h3><?php _e('Archives by Tags', 'hemingway') ?></h3>
+					            <h3><?php _e('Archives by Tags', 'baskerville') ?></h3>
 					            
 					            <ul>
 					                <?php $tags = get_tags();
 					                
 					                if ($tags) {
 					                    foreach ($tags as $tag) {
-					                 	   echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'hemingway' ), $tag->name ) . '" ' . '>' . $tag->name.'</a></li> ';
+					                 	   echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'baskerville' ), $tag->name ) . '" ' . '>' . $tag->name.'</a></li> ';
 					                    }
 					                }
 					                
@@ -92,25 +92,25 @@ Template Name: Archive template
 				            
 				            <div class="archive-col">
 				            
-				            	<h3><?php _e('Contributors', 'hemingway') ?></h3>
+				            	<h3><?php _e('Contributors', 'baskerville') ?></h3>
 				            	
 				            	<ul>
 				            		<?php wp_list_authors(); ?> 
 				            	</ul>
 				            	
-				            	<h3><?php _e('Archives by Year', 'hemingway') ?></h3>
+				            	<h3><?php _e('Archives by Year', 'baskerville') ?></h3>
 				            	
 				            	<ul>
 				            	    <?php wp_get_archives('type=yearly'); ?>
 				            	</ul>
 				            	
-				            	<h3><?php _e('Archives by Month', 'hemingway') ?></h3>
+				            	<h3><?php _e('Archives by Month', 'baskerville') ?></h3>
 				            	
 				            	<ul>
 				            	    <?php wp_get_archives('type=monthly'); ?>
 				            	</ul>
 				            
-					            <h3><?php _e('Archives by Day', 'hemingway') ?></h3>
+					            <h3><?php _e('Archives by Day', 'baskerville') ?></h3>
 					            
 					            <ul>
 					                <?php wp_get_archives('type=daily'); ?>
@@ -121,38 +121,30 @@ Template Name: Archive template
 				            <div class="clear"></div>
 		            
 			            </div> <!-- /archive-box -->
-			            
-			            <?php if ( current_user_can( 'manage_options' ) ) : ?>
-																		
-							<p><?php edit_post_link( __('Edit', 'hemingway') ); ?></p>
-						
-						<?php endif; ?>
 															            			                        
 					</div> <!-- /post-content -->
+					
+					<?php wp_reset_query(); ?>
 											
 					<div class="clear"></div>
-					
-					<?php if ( comments_open() ) : ?>
 			
-						<?php comments_template( '', true ); ?>
-					
-					<?php endif; ?>
+					<?php comments_template( '', true ); ?>
 				
 				<?php endwhile; else: ?>
 		
-					<p><?php _e("We couldn't find any posts that matched your query. Please try again.", "hemingway"); ?></p>
+					<p><?php _e("We couldn't find any posts that matched your query. Please try again.", "baskerville"); ?></p>
 			
 				<?php endif; ?>
 	
 			</div> <!-- /post -->
+				
+		</div> <!-- /content -->
 		
-		</div> <!-- /posts -->
+		<?php get_sidebar(); ?>
 	
-	</div> <!-- /content -->
+		<div class="clear"></div>
 	
-	<?php get_sidebar(); ?>
-
-	<div class="clear"></div>
+	</div> <!-- /section-inner -->
 	
 </div> <!-- /wrapper section-inner -->
 								

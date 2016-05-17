@@ -1,12 +1,12 @@
 <?php 
 
-// Flickr widget for hemingway WordPress theme
+// Flickr widget for Baskerville WordPress theme
 
-class hemingway_flickr_widget extends WP_Widget {
-	
+class baskerville_flickr_widget extends WP_Widget {
+
 	function __construct() {
-        $widget_ops = array( 'classname' => 'hemingway_flickr_widget', 'description' => __('Displays your latest Flickr photos.', 'hemingway') );
-        parent::__construct( 'hemingway_dribbble_widget', __('Flickr Widget','hemingway'), $widget_ops );
+        $widget_ops = array( 'classname' => 'baskerville_flickr_widget', 'description' => __('Displays your latest Flickr photos.', 'baskerville') );
+        parent::__construct( 'baskerville_flickr_widget', __('Flickr Widget','baskerville'), $widget_ops );
     }
 	
 	function widget($args, $instance) {
@@ -27,10 +27,14 @@ class hemingway_flickr_widget extends WP_Widget {
 			echo $before_title . $widget_title . $after_title;
 			
 		} ?>
+		
+			<div class="flickr-container">
 				
-			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=<?php echo $fli_number; ?>&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=<?php echo $fli_id; ?>"></script>
+				<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=<?php echo $fli_number; ?>&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=<?php echo $fli_id; ?>"></script>
+			
+			</div>
 					
-		<p class="widgetmore"><a href="http://www.flickr.com/photos/<?php echo "$fli_id"; ?>"><?php _e('More on Flickr &raquo;', 'hemingway'); ?></a></p>
+		<p class="widgetmore"><a href="http://www.flickr.com/photos/<?php echo "$fli_id"; ?>"><?php _e('More on Flickr', 'baskerville') . ' &raquo;'; ?></a></p>
 		
 		<?php echo $after_widget; 
 	}
@@ -52,23 +56,23 @@ class hemingway_flickr_widget extends WP_Widget {
 		?>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'hemingway'); ?>:
+			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'baskerville'); ?>:
 			<input id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" class="widefat" value="<?php echo $widget_title; ?>" /></label>
 		</p>
 				
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('id'); ?>"><?php _e('Flickr ID (use <a target="_blank" href="http://www.idgettr.com">idGettr</a>):', 'hemingway'); ?>
+			<label for="<?php echo $this->get_field_id('id'); ?>"><?php _e('Flickr ID (use <a target="_blank" href="http://www.idgettr.com">idGettr</a>):', 'baskerville'); ?>
 			<input id="<?php echo $this->get_field_id('id'); ?>" name="<?php echo $this->get_field_name('id'); ?>" type="text" class="widefat" value="<?php echo $fli_id; ?>" /></label>
 		</p>
 		
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of images to display:', 'hemingway'); ?>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of images to display:', 'baskerville'); ?>
 			<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" class="widefat" value="<?php echo $fli_number; ?>" /></label>
 		</p>
 		
 		<?php
 	}
 }
-register_widget('hemingway_flickr_widget'); ?>
+register_widget('baskerville_flickr_widget'); ?>
