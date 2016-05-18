@@ -15,8 +15,6 @@
 
 	<body <?php body_class(); ?>>
 
-
-
 		<div class="header section small-padding bg-dark bg-image" style="background-image: url(<?php if (get_header_image() != '') : ?><?php header_image(); ?><?php else : ?><?php echo get_template_directory_uri() . '/images/header.jpg'; ?><?php endif; ?>);">
 
 			<div class="cover"></div>
@@ -37,70 +35,21 @@
 
 					<ul class="main-menu">
 
-						<?php if ( has_nav_menu( 'primary' ) ) {
+						<!-- Main Menu -->
 
-							wp_nav_menu( array(
+					</ul>
 
-								'container' => '',
-								'items_wrap' => '%3$s',
-								'theme_location' => 'primary',
-								'walker' => new baskerville_nav_walker
+					 <ul class="fright">
 
-							) ); } else {
+					 	<!-- Social Menu -->
 
-							wp_list_pages( array(
-
-								'container' => '',
-								'title_li' => ''
-
-							));
-
-						} ?>
-
-					 </ul> <!-- /main-menu -->
-
-					 <a class="search-toggle fright" href="#"></a>
+					 </ul>
 
 					 <div class="clear"></div>
 
 				</div> <!-- /navigation-inner -->
 
 			</div> <!-- /navigation -->
-
-			<div class="mobile-navigation section bg-graphite no-padding hidden">
-
-				<ul class="mobile-menu">
-
-					<?php if ( has_nav_menu( 'primary' ) ) {
-
-						wp_nav_menu( array(
-
-							'container' => '',
-							'items_wrap' => '%3$s',
-							'theme_location' => 'primary',
-							'walker' => new baskerville_nav_walker
-
-						) ); } else {
-
-						wp_list_pages( array(
-
-							'container' => '',
-							'title_li' => ''
-
-						));
-
-					} ?>
-
-				 </ul> <!-- /main-menu -->
-
-			</div> <!-- /mobile-navigation -->
-
-
-			<div class="header-search-block bg-graphite hidden">
-
-				<?php get_search_form(); ?>
-
-			</div> <!-- /header-search-block -->
 
 			<div class="header-inner section-inner">
 
@@ -134,9 +83,11 @@
 
 		<div class="ustream-player">
 
+			<p>Un programa sobre gustos y placeres<br>Todos los jueves en vivo de 21 a 23 hs</p>
+
 			<iframe
 					width="100%"
-					height="130"
+					height="100"
 					src="http://www.ustream.tv/embed/22250656?html5ui&showtitle=false"
 					allowfullscreen
 					webkitallowfullscreen
