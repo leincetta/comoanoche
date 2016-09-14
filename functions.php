@@ -1,599 +1,100 @@
 <?php
 
-// Theme setup
-add_action( 'after_setup_theme', 'baskerville_setup' );
+// Add CSS
+function amalfi_theme_styles() {
 
-function baskerville_setup() {
-
-	// Automatic feed
-	add_theme_support( 'automatic-feed-links' );
-
-	// Post thumbnails
-	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'post-image', 945, 9999 );
-	add_image_size( 'post-thumbnail', 600, 9999 );
-
-	// Post formats
-	add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-
-	// Custom header
-	$args = array(
-		'width'         => 1440,
-		'height'        => 221,
-		'default-image' => get_template_directory_uri() . '/images/header.jpg',
-		'uploads'       => true,
-		'header-text'  	=> false
-
-	);
-	add_theme_support( 'custom-header', $args );
-
-	// Add support for title_tag
-	add_theme_support('title-tag');
-
-	// Add support for custom background
-	$args = array(
-		'default-color'	=> '#f1f1f1'
-	);
-	add_theme_support( "custom-background", $args );
-
-	// Add nav menu
-	register_nav_menu( 'primary', 'Primary Menu' );
-
-	// Make the theme translation ready
-	load_theme_textdomain('baskerville', get_template_directory() . '/languages');
-
-	$locale = get_locale();
-	$locale_file = get_template_directory() . "/languages/$locale.php";
-	if ( is_readable($locale_file) )
-	  require_once($locale_file);
+	wp_enqueue_style( 'build_css', get_template_directory_uri() . '/build/css/build.css' );
+	wp_enqueue_style( 'main_css', get_template_directory_uri() . '/style.css' );
 
 }
 
-// Enqueue Javascript files
-function baskerville_load_javascript_files() {
+add_action( 'wp_enqueue_scripts', 'amalfi_theme_styles' );
 
-	if ( !is_admin() ) {
-		wp_register_script( 'baskerville_imagesloaded', get_template_directory_uri().'/js/imagesloaded.pkgd.js', array('jquery'), '', true );
-		wp_register_script( 'baskerville_flexslider', get_template_directory_uri().'/js/flexslider.min.js', array('jquery'), '', true );
-		wp_register_script( 'baskerville_global', get_template_directory_uri().'/js/global.js', array('jquery'), '', true );
 
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'masonry' );
-		wp_enqueue_script( 'baskerville_imagesloaded' );
-		wp_enqueue_script( 'baskerville_flexslider' );
-		wp_enqueue_script( 'baskerville_global' );
-	}
+// Add JS
+function amalfi_theme_js() {
+
+	// False to be on top, true to be at the bottom:
+	wp_enqueue_script( 'scripts_js', get_template_directory_uri() . '/build/js/script.min.js', '', '', true );
+	// If it depends on jQuery:
+	// wp_enqueue_script( 'scripts_js', get_template_directory_uri() . '/build/js/script.min.js', array('jquery'), '', true );
+
 }
 
-add_action( 'wp_enqueue_scripts', 'baskerville_load_javascript_files' );
+add_action( 'wp_enqueue_scripts', 'amalfi_theme_js' );
 
 
-// Enqueue styles
-function baskerville_load_style() {
-	if ( !is_admin() ) {
-	    wp_register_style('baskerville_googleFonts',  '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400' );
-		wp_register_style('baskerville_style', get_stylesheet_uri() );
+// Register Widget Areas
+function amalfi_create_widget( $name, $id, $description ) {
 
-	    wp_enqueue_style( 'baskerville_googleFonts' );
-	    wp_enqueue_style( 'baskerville_style' );
-	}
-}
-
-add_action('wp_print_styles', 'baskerville_load_style');
-
-
-// Add editor styles
-function baskerville_add_editor_styles() {
-    add_editor_style( 'baskerville-editor-style.css' );
-    $font_url = '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300';
-    add_editor_style( str_replace( ',', '%2C', $font_url ) );
-}
-add_action( 'init', 'baskerville_add_editor_styles' );
-
-
-// Add footer widget areas
-add_action( 'widgets_init', 'baskerville_sidebar_reg' );
-
-function baskerville_sidebar_reg() {
 	register_sidebar(array(
-	  'name' => __( 'Footer A', 'baskerville' ),
-	  'id' => 'footer-a',
-	  'description' => __( 'Widgets in this area will be shown in the left column in the footer.', 'baskerville' ),
-	  'before_title' => '<h3 class="widget-title">',
-	  'after_title' => '</h3>',
-	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-	  'after_widget' => '</div><div class="clear"></div></div>'
+		'name' => __( $name ),	 
+		'id' => $id, 
+		'description' => __( $description ),
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="module-heading">',
+		'after_title' => '</h2>'
 	));
-	register_sidebar(array(
-	  'name' => __( 'Footer B', 'baskerville' ),
-	  'id' => 'footer-b',
-	  'description' => __( 'Widgets in this area will be shown in the middle column in the footer.', 'baskerville' ),
-	  'before_title' => '<h3 class="widget-title">',
-	  'after_title' => '</h3>',
-	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-	  'after_widget' => '</div><div class="clear"></div></div>'
-	));
-	register_sidebar(array(
-	  'name' => __( 'Footer C', 'baskerville' ),
-	  'id' => 'footer-c',
-	  'description' => __( 'Widgets in this area will be shown in the right column in the footer.', 'baskerville' ),
-	  'before_title' => '<h3 class="widget-title">',
-	  'after_title' => '</h3>',
-	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-	  'after_widget' => '</div><div class="clear"></div></div>'
-	));
-	register_sidebar(array(
-	  'name' => __( 'Sidebar', 'baskerville' ),
-	  'id' => 'sidebar',
-	  'description' => __( 'Widgets in this area will be shown in the sidebar.', 'baskerville' ),
-	  'before_title' => '<h3 class="widget-title">',
-	  'after_title' => '</h3>',
-	  'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-	  'after_widget' => '</div><div class="clear"></div></div>'
-	));
+
 }
 
-// Add theme widgets
-require_once (get_template_directory() . "/widgets/dribbble-widget.php");
-require_once (get_template_directory() . "/widgets/flickr-widget.php");
-require_once (get_template_directory() . "/widgets/video-widget.php");
+amalfi_create_widget( 'Page Sidebar', 'page', 'Displays on the side of pages with a sidebar' );
+amalfi_create_widget( 'Blog Sidebar', 'blog', 'Displays on the side of pages in the blog section' );
 
 
-// Set content-width
-if ( ! isset( $content_width ) ) $content_width = 676;
+// Add support for featured images
+add_theme_support( 'post-thumbnails' );
 
 
-// Add classes to next_posts_link and previous_posts_link
-add_filter('next_posts_link_attributes', 'baskerville_posts_link_attributes_1');
-add_filter('previous_posts_link_attributes', 'baskerville_posts_link_attributes_2');
+// Set maximum width for images 
+update_option('thumbnail_size_w', 700);
 
-function baskerville_posts_link_attributes_1() {
-    return 'class="post-nav-older fleft"';
+
+// Disable medium and full size uploads
+function amalfi_remove_default_image_sizes( $sizes) {
+
+    unset( $sizes['medium']);
+    unset( $sizes['large']);
+     
+    return $sizes;
 }
-function baskerville_posts_link_attributes_2() {
-    return 'class="post-nav-newer fright"';
-}
+
+add_filter('intermediate_image_sizes_advanced', 'amalfi_remove_default_image_sizes');
 
 
-// Menu walker adding "has-children" class to menu li's with children menu items
-class baskerville_nav_walker extends Walker_Nav_Menu {
-    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
-        $id_field = $this->db_fields['id'];
-        if ( !empty( $children_elements[ $element->$id_field ] ) ) {
-            $element->classes[] = 'has-children';
-        }
-        Walker_Nav_Menu::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+// Remove Default Image Link
+function amalfi_imagelink_setup() {
+
+    $image_set = get_option( 'image_default_link_type' );
+
+    if ($image_set !== 'none') {
+
+        update_option('image_default_link_type', 'none');
+
     }
-}
-
-
-// Add class to body if the post/page has a featured image
-add_action('body_class', 'baskerville_if_featured_image_class' );
-
-function baskerville_if_featured_image_class($classes) {
-     global $post;
-     if ( isset( $post ) && has_post_thumbnail() ) {
-             $classes[] = 'has-featured-image';
-     } else {
-	     $classes[] = 'no-featured-image';
-     }
-     return $classes;
-}
-
-
-// Add class to body if it's viewed on mobile
-add_action('body_class', 'baskerville_if_is_mobile' );
-
-function baskerville_if_is_mobile($classes) {
-     global $post;
-     if ( wp_is_mobile() ) {
-             $classes[] = 'is_mobile';
-     }
-     return $classes;
-}
-
-
-// Add class to body if it's a single page
-add_action('body_class', 'baskerville_if_page_class' );
-
-function baskerville_if_page_class($classes) {
-     global $post;
-     if ( is_page() || is_404() || is_attachment() ) {
-             $classes[] = 'single single-post';
-     }
-     return $classes;
-}
-
-
-// Change the length of excerpts
-function custom_excerpt_length( $length ) {
-	return 40;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-
-
-// Add more-link text to excerpt
-function new_excerpt_more( $more ) {
-	return '... <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __('Continue Reading', 'baskerville') . ' &rarr;</a>';
-}
-add_filter( 'excerpt_more', 'new_excerpt_more' );
-
-function baskerville_meta() { ?>
-
-	<div class="post-meta">
-
-		<a class="post-date" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_time( 'Y/m/d' ); ?></a>
-
-		<?php
-
-			if( function_exists('zilla_likes') ) zilla_likes();
-
-			if ( comments_open() ) {
-				comments_popup_link( '0', '1', '%', 'post-comments' );
-			}
-
-			edit_post_link();
-
-		?>
-
-		<div class="clear"></div>
-
-	</div> <!-- /post-meta -->
-
-<?php
-}
-
-
-// Style the admin area
-function baskerville_custom_colors() {
-   echo '<style type="text/css">
-
-#postimagediv #set-post-thumbnail img {
-	max-width: 100%;
-	height: auto;
-}
-
-         </style>';
-}
-
-add_action('admin_head', 'baskerville_custom_colors');
-
-
-// Flexslider function for format-gallery
-function baskerville_flexslider($size = thumbnail) {
-
-	if ( is_page()) :
-		$attachment_parent = $post->ID;
-	else :
-		$attachment_parent = get_the_ID();
-	endif;
-
-	if($images = get_posts(array(
-		'post_parent'    => $attachment_parent,
-		'post_type'      => 'attachment',
-		'numberposts'    => -1, // show all
-		'post_status'    => null,
-		'post_mime_type' => 'image',
-                'orderby'        => 'menu_order',
-                'order'           => 'ASC',
-	))) { ?>
-
-		<div class="flexslider">
-
-			<ul class="slides">
-
-				<?php foreach($images as $image) {
-					$attimg = wp_get_attachment_image($image->ID,$size); ?>
-
-					<li>
-						<?php echo $attimg; ?>
-						<?php if ( !empty($image->post_excerpt) && is_single()) : ?>
-							<div class="media-caption-container">
-								<p class="media-caption"><?php echo $image->post_excerpt ?></p>
-							</div>
-						<?php endif; ?>
-					</li>
-
-				<?php }; ?>
-
-			</ul>
-
-		</div><?php
-
-	}
-}
-
-
-// Baskerville comment function
-if ( ! function_exists( 'baskerville_comment' ) ) :
-function baskerville_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case 'pingback' :
-		case 'trackback' :
-	?>
-
-	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-
-		<?php __( 'Pingback:', 'baskerville' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'baskerville' ), '<span class="edit-link">', '</span>' ); ?>
-
-	</li>
-	<?php
-			break;
-		default :
-		global $post;
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-
-		<div id="comment-<?php comment_ID(); ?>" class="comment">
-
-			<?php echo get_avatar( $comment, 80 ); ?>
-
-			<div class="comment-inner">
-
-				<div class="comment-header">
-
-					<?php printf( '<cite class="fn">%1$s</cite>',
-						get_comment_author_link()
-					); ?>
-
-					<p><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php echo get_comment_date() . ' at ' . get_comment_time() ?></a></p>
-
-					<div class="comment-actions">
-
-						<?php edit_comment_link( __( 'Edit', 'baskerville' ), '', '' ); ?>
-
-						<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baskerville' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-
-						<div class="clear"></div>
-
-					</div> <!-- /comment-actions -->
-
-				</div> <!-- /comment-header -->
-
-				<div class="comment-content">
-
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-
-						<p class="comment-awaiting-moderation"><?php _e( 'Awaiting moderation', 'baskerville' ); ?></p>
-
-					<?php endif; ?>
-
-					<?php comment_text(); ?>
-
-				</div><!-- /comment-content -->
-
-				<div class="comment-actions-below hidden">
-
-					<?php edit_comment_link( __( 'Edit', 'baskerville' ), '', '' ); ?>
-
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baskerville' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-
-					<div class="clear"></div>
-
-				</div> <!-- /comment-actions -->
-
-			</div> <!-- /comment-inner -->
-
-		</div><!-- /comment-## -->
-	<?php
-		break;
-	endswitch;
-}
-endif;
-
-
-// Add Twitter field to user profiles
-function baskerville_modify_contact_methods($profile_fields) {
-
-	// Add new fields
-	$profile_fields['twitter'] = 'Twitter-username (without the @)';
-
-	return $profile_fields;
-}
-add_filter('user_contactmethods', 'baskerville_modify_contact_methods');
-
-
-// Add the option to show or hide the email address for post authors
-add_action( 'show_user_profile', 'show_extra_profile_fields' );
-add_action( 'edit_user_profile', 'show_extra_profile_fields' );
-
-function show_extra_profile_fields( $user ) { ?>
-
-	<h3>Extra profile information</h3>
-
-	<table class="form-table">
-
-
-		<tr>
-			<th><label for="showemail"><?php _e('Show email', 'baskerville'); ?></label></th>
-
-			<td>
-				<input type="checkbox" name="showemail" id="showemail" value="yes" <?php if (esc_attr( get_the_author_meta( "showemail", $user->ID )) == "yes") echo "checked"; ?> />
-				<span class="description"><?php _e('Check if you want to display your email address in single posts and the contributors page template.', 'baskerville'); ?></span>
-			</td>
-		</tr>
-
-	</table>
-<?php }
-
-add_action( 'personal_options_update', 'save_extra_profile_fields' );
-add_action( 'edit_user_profile_update', 'save_extra_profile_fields' );
-
-function save_extra_profile_fields( $user_id ) {
-
-	if ( !current_user_can( 'edit_user', $user_id ) )
-		return false;
-
-	update_user_meta( $user_id, 'showemail', $_POST['showemail'] );
 
 }
 
-
-// Baskerville theme options
-
-class baskerville_Customize {
-
-   public static function register ( $wp_customize ) {
-
-      //1. Define a new section (if desired) to the Theme Customizer
-      $wp_customize->add_section( 'baskerville_options',
-         array(
-            'title' => __( 'Baskerville Options', 'baskerville' ), //Visible title of section
-            'priority' => 35, //Determines what order this appears in
-            'capability' => 'edit_theme_options', //Capability needed to tweak
-            'description' => __('Allows you to customize some settings for Baskerville.', 'baskerville'), //Descriptive tooltip
-         )
-      );
-
-      $wp_customize->add_section( 'baskerville_logo_section' , array(
-		    'title'       => __( 'Logo', 'baskerville' ),
-		    'priority'    => 40,
-		    'description' => 'Upload a logo to replace the default site name and description in the header',
-		) );
-
-      //2. Register new settings to the WP database...
-      $wp_customize->add_setting( 'baskerville_logo',
-      	array(
-      		'sanitize_callback' => 'esc_url_raw'
-      	)
-      );
-
-      //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'baskerville_logo', array(
-		    'label'    => __( 'Logo', 'baskerville' ),
-		    'section'  => 'baskerville_logo_section',
-		    'settings' => 'baskerville_logo',
-		) ) );
-
-      //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-   }
-
-   public static function generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
-      $return = '';
-      $mod = get_theme_mod($mod_name);
-      if ( ! empty( $mod ) ) {
-         $return = sprintf('%s { %s:%s; }',
-            $selector,
-            $style,
-            $prefix.$mod.$postfix
-         );
-         if ( $echo ) {
-            echo $return;
-         }
-      }
-      return $return;
-    }
-}
-
-// Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'baskerville_Customize' , 'register' ) );
+add_action('admin_init', 'amalfi_imagelink_setup', 10);
 
 
-// Required plugins
+// Add support for menus
+add_theme_support( 'menus' );
 
-/**
- * This file represents an example of the code that themes would use to register
- * the required plugins.
- *
- * It is expected that theme authors would copy and paste this code into their
- * functions.php file, and amend to suit.
- *
- * @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
- *
- * @package    TGM-Plugin-Activation
- * @subpackage Example
- * @version    2.5.2
- * @author     Thomas Griffin, Gary Jones, Juliette Reinders Folmer
- * @copyright  Copyright (c) 2011, Thomas Griffin
- * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link       https://github.com/TGMPA/TGM-Plugin-Activation
- */
 
-/**
- * Include the TGM_Plugin_Activation class.
- *
- * Depending on your implementation, you may want to change the include call:
- *
- * Parent Theme:
- * require_once get_template_directory() . '/path/to/class-tgm-plugin-activation.php';
- *
- * Child Theme:
- * require_once get_stylesheet_directory() . '/path/to/class-tgm-plugin-activation.php';
- *
- * Plugin:
- * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
- */
-require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+// Register the theme menus
+function register_theme_menus() {
 
-add_action( 'tgmpa_register', 'comoanoche_register_required_plugins' );
-
-/**
- * Register the required plugins for this theme.
- *
- * In this example, we register five plugins:
- * - one included with the TGMPA library
- * - two from an external source, one from an arbitrary source, one from a GitHub repository
- * - two from the .org repo, where one demonstrates the use of the `is_callable` argument
- *
- * The variables passed to the `tgmpa()` function should be:
- * - an array of plugin arrays;
- * - optionally a configuration array.
- * If you are not changing anything in the configuration array, you can remove the array and remove the
- * variable from the function call: `tgmpa( $plugins );`.
- * In that case, the TGMPA default settings will be used.
- *
- * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
- */
-function comoanoche_register_required_plugins() {
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
-	$plugins = array(
-
-		// This is an example of how to include a plugin bundled with a theme.
-
+	register_nav_menus(
 		array(
-			'name'               => 'ZillaLikes', // The plugin name.
-			'slug'               => 'zilla-likes', // The plugin slug (typically the folder name).
-			'source'             => get_stylesheet_directory() . '/plugins/zilla-likes-1.1.1.zip', // The plugin source.
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
-
+			'primary-menu' => __( 'Primary Menu' )
+		)
 	);
 
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 *
-	 * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-	 * strings available, please help us make TGMPA even better by giving us access to these translations or by
-	 * sending in a pull-request with .po file(s) with the translations.
-	 *
-	 * Only uncomment the strings in the config array if you want to customize the strings.
-	 */
-	$config = array(
-		'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to bundled plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'parent_slug'  => 'themes.php',            // Parent menu slug.
-		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
-
-	);
-
-	tgmpa( $plugins, $config );
 }
+
+add_action( 'init', 'register_theme_menus' );
+
 
 ?>

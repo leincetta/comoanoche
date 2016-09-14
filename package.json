@@ -1,0 +1,25 @@
+{
+  "name": "grunt-starter-kit",
+  "version": "1.0.0",
+  "description": "Clone this repo and get ready to start working with Grunt",
+  "main": "index.html",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leincetta/grunt_starter-kit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leincetta/grunt_starter-kit/issues"
+  },
+  "homepage": "https://github.com/leincetta/grunt_starter-kit#readme"
+}

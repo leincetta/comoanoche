@@ -1,144 +1,33 @@
-<div class="footer section medium-padding bg-graphite">
-	
-	<div class="section-inner row">
-	
-		<?php if ( is_active_sidebar( 'footer-a' ) ) : ?>
-		
-			<div class="column column-1 one-third">
-			
-				<div class="widgets">
-		
-					<?php dynamic_sidebar( 'footer-a' ); ?>
-										
-				</div>
-				
-			</div>
-			
-		<?php else : ?>
-		
-			<div class="column column-1 one-third">
-			
-				<div class="widgets">
-			
-					<div id="search" class="widget widget_search">
-					
-						<div class="widget-content">
-						
-							<h3 class="widget-title"><?php _e( 'Search form', 'baskerville' ); ?></h3>
-			                <?php get_search_form(); ?>
-			                
-						</div>
-						
-	                </div>
-									
-				</div>
-				
-			</div>
-			
-		<?php endif; ?> <!-- /footer-a -->
-			
-		<?php if ( is_active_sidebar( 'footer-b' ) ) : ?>
-		
-			<div class="column column-2 one-third">
-			
-				<div class="widgets">
-		
-					<?php dynamic_sidebar( 'footer-b' ); ?>
-										
-				</div> <!-- /widgets -->
-				
-			</div>
-			
-		<?php else : ?>
-		
-			<div class="column column-2 one-third">
-			
-				<div class="widgets">
-				
-					<div class="widget widget_recent_entries">
-					
-						<div class="widget-content">
-						
-							<h3 class="widget-title"><?php _e( 'Latest posts', 'baskerville' ); ?></h3>
-							
-							<ul>
-				                <?php
-									$args = array( 'numberposts' => '5', 'post_status' => 'publish' );
-									$recent_posts = wp_get_recent_posts( $args );
-									foreach( $recent_posts as $recent ){
-										echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="'.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </li> ';
-									}
-								?>
-							</ul>
-			                
-						</div>
-						
-	                </div>
-									
-				</div> <!-- /widgets -->
-				
-			</div>
-			
-		<?php endif; ?> <!-- /footer-b -->
-							
-		<?php if ( is_active_sidebar( 'footer-c' ) ) : ?>
-		
-			<div class="column column-3 one-third">
-		
-				<div class="widgets">
-		
-					<?php dynamic_sidebar( 'footer-c' ); ?>
-										
-				</div> <!-- /widgets -->
-				
-			</div>
-			
-		<?php else : ?>
-		
-			<div class="column column-3 one-third">
-			
-				<div id="meta" class="widget widget_text">
-					<div class="widget-content">
-					
-						<h3 class="widget-title"><?php _e( "Text widget", "baskerville" ); ?></h3>
-						<p><?php _e( "These widgets are displayed because you haven't added any widgets of your own yet. You can do so at Appearance > Widgets in the WordPress settings.", "baskerville" ); ?></p>
-		                
-					</div>
-                </div>
-								
-			</div>
-			
-		<?php endif; ?> <!-- /footer-c -->
-		
-		<div class="clear"></div>
-	
-	</div> <!-- /footer-inner -->
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
 
-</div> <!-- /footer -->
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<div class="credits section bg-dark small-padding">
+		<!-- Output any code that need to come before closing the body tag -->
+		<?php wp_footer(); ?>
 
-	<div class="credits-inner section-inner">
-
-		<p class="credits-left fleft">
-		
-			&copy; <?php echo date("Y") ?> <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a><span> &mdash; <?php printf( __( 'Powered by <a href="%s">WordPress</a>', 'baskerville'), 'http://www.wordpress.org' ); ?></span>
-		
-		</p>
-		
-		<p class="credits-right fright">
-			
-			<span><?php printf( __( 'Theme by <a href="%s">Anders Noren</a>', 'baskerville'), 'http://www.andersnoren.se' ); ?> &mdash; </span><a class="tothetop" title="<?php _e('To the top', 'baskerville'); ?>" href="#"><?php _e('Up', 'baskerville' ); ?> &uarr;</a>
-			
-		</p>
-		
-		<div class="clear"></div>
-	
-	</div> <!-- /credits-inner -->
-	
-</div> <!-- /credits -->
-
-<?php wp_footer(); ?>
-
-</body>
+    </body>
 </html>

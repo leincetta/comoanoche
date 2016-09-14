@@ -1,0 +1,89 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $SansSerif;
+}
+
+p {
+	font-family: $Serif;
+	letter-spacing: .01rem;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 21px;
+	line-height: 1.58;
+	letter-spacing: -0.003em;
+	color: $Color01;
+	margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+  	text-decoration: underline;
+  }
+}
+
+h1 {
+	font-weight: 700;
+	font-style: normal;
+	font-size: 36px;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+// Display date
+
+.date {
+	letter-spacing: 0;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	color: $Color02;
+	font-family: $SansSerif;
+	line-height: 1.58;
+}
+
+// Headings shown after the date
+
+.list-heading {
+	margin-top: 0;
+	line-height: 1.58;
+	font-size: 21px;
+	margin-bottom: 0;
+}
+
+//
+
+.home-section {
+	margin: 60px 0;
+	font-size: 28px;
+}
+
+// 
+
+.section-plus {
+	float: right;
+}
+
+//
+
+.heading-excerpt {
+	font-weight: 400;
+	font-style: normal;
+	font-size: 36px;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	font-family: $SansSerif;
+	margin: 0;
+	color: $Color02;
+}
+
+// 
+
+.heading-interior {
+	margin-bottom: 180px;
+}
