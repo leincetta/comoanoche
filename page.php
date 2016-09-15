@@ -1,12 +1,15 @@
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<!-- post -->
-<div class="parallax-container valign-wrapper">
-	<div class="container valign">
-		<div class="row">
-			<div class="col s12 m6 <?php the_field('image_text_overlay'); ?>">
+<div class="parallax-container">
+	<div class="container">
+		<div class="row valign-wrapper">
+			<div class="valign col s12 m6 <?php the_field('image_text_overlay'); ?>">
 				<h1><?php the_title(); ?></h1>
 				<p class="flow-text"><?php the_field('subtitulo'); ?></p>
+			</div>
+			<div class="valign col s12 m6 floating-thumb">
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="" class="z-depth-3" />
 			</div>
 		</div>
 	</div>
@@ -24,13 +27,6 @@
 	</div>
 </div>
 <section>
-	<div class="container floating-thumb">
-		<div class="row">
-			<div class="col s12 m6 offset-m6">
-				<img src="<?php the_post_thumbnail_url(); ?>" alt="" class="z-depth-3" />
-			</div>
-		</div>
-	</div>
 	<div class="container">
 		<div class="row">
 			<br>
