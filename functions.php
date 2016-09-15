@@ -28,26 +28,26 @@ add_action( 'wp_enqueue_scripts', 'amalfi_theme_js' );
 function amalfi_create_widget( $name, $id, $description ) {
 
 	register_sidebar(array(
-		'name' => __( $name ),	 
-		'id' => $id, 
+		'name' => __( $name ),
+		'id' => $id,
 		'description' => __( $description ),
 		'before_widget' => '<div class="widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2 class="module-heading">',
+		'before_title' => '<h2 class="module-heading h5">',
 		'after_title' => '</h2>'
 	));
 
 }
 
-amalfi_create_widget( 'Page Sidebar', 'page', 'Displays on the side of pages with a sidebar' );
-amalfi_create_widget( 'Blog Sidebar', 'blog', 'Displays on the side of pages in the blog section' );
+amalfi_create_widget( 'Home Sidebar', 'sidebar-home', 'Sidebar principal' );
+amalfi_create_widget( 'Blog Sidebar', 'sidebar-blog', 'Posts unicamente' );
 
 
 // Add support for featured images
 add_theme_support( 'post-thumbnails' );
 
 
-// Set maximum width for images 
+// Set maximum width for images
 update_option('thumbnail_size_w', 700);
 
 
@@ -56,7 +56,7 @@ function amalfi_remove_default_image_sizes( $sizes) {
 
     unset( $sizes['medium']);
     unset( $sizes['large']);
-     
+
     return $sizes;
 }
 
@@ -96,5 +96,15 @@ function register_theme_menus() {
 
 add_action( 'init', 'register_theme_menus' );
 
+// customizer (https://developer.wordpress.org/themes/advanced-topics/customizer-api/)
+
+// $args = array(
+// 	'width'         => 980,
+// 	'height'        => 60,
+// 	'default-image' => get_template_directory_uri() . '/images/header.jpg',
+// );
+// add_theme_support( 'custom-header', $args );
+
+add_theme_support( 'custom-header' );
 
 ?>

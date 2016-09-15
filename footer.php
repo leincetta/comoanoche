@@ -1,33 +1,19 @@
-<footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
-
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-		<!-- Output any code that need to come before closing the body tag -->
-		<?php wp_footer(); ?>
-
-    </body>
+    <!-- Player -->
+    <?php get_template_part('partials/streaming-player'); ?>
+    <!-- Scripts -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- <script src="<?php echo get_template_directory_uri().'/build/js/script.min.js' ?>"></script> -->
+    <!-- Materialize activation -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.parallax').parallax(); // Parallax
+      $(".button-collapse").sideNav(); // Nav
+      $('.modal-trigger').leanModal();
+      $('.tabs-wrapper').pushpin({ top: $('.tabs-wrapper').offset().top });
+    });
+    </script>
+    <!-- Output any code that need to come before closing the body tag -->
+    <?php wp_footer(); ?>
+  </body>
 </html>

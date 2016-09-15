@@ -1,17 +1,8 @@
-<ul class="social-links">
-	<li>
-		<a href="https://twitter.com/leincetta" target="_blank">
-			<img alt="Twitter" src="<?php bloginfo('template_directory'); ?>/images/social-twitter.svg" />
-		</a>
-	</li>
-	<li>
-		<a href="https://www.linkedin.com/in/leandroincetta" target="_blank">
-			<img alt="LinkedIn" src="<?php bloginfo('template_directory'); ?>/images/social-linkedin.svg" />
-		</a>
-	</li>
-	<li>
-		<a href="https://dribbble.com/leincetta" target="_blank">
-			<img alt="Dribbble" src="<?php bloginfo('template_directory'); ?>/images/social-dribbble.svg" />
-		</a>
-	</li>
-</ul>
+<!-- Home -->
+<?php if ( is_active_sidebar( 'sidebar-home' ) ) : ?>
+<div class="tabs-wrapper">
+	<div id="secondary" class="widget-area" role="complementary">
+	<?php dynamic_sidebar( 'sidebar-home' ); ?>
+	</div>
+</div>
+<?php endif; ?>
