@@ -1,30 +1,73 @@
-<!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!-- <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title> -->
-    <title><?php wp_title(''); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Output any code that need to come before closing the head tag -->
-    <?php wp_head(); ?>
-  </head>
-  <body>
-    <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <nav>
-      <div class="nav-wrapper container">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-logo"><?php bloginfo('title'); ?></a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <!-- Desktop menu -->
-        <div class="right hide-on-med-and-down">
-          <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
-        </div>
-        <!-- Mobile menu -->
-        <div class="side-nav" id="mobile-demo">
-          <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
-        </div>
-      </div>
-    </nav>
+<?php
+/**
+ * The header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package brosco
+ */
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?php wp_title( '|', true, 'right' ); ?></title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+<!-- google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
+<!-- /google fonts -->
+
+<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'brosco' ); ?></a>
+
+
+<?php
+if ( is_home() && !is_paged() ) {
+    // This is the blog posts index
+    get_template_part( 'featured' );
+} ?>
+
+
+
+
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-inside">
+
+<div class="logo">
+<?php if ( get_theme_mod( 'brosco_logo' ) ) : ?>
+
+
+
+
+		<a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'brosco_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+
+		<?php else : ?>
+
+
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+
+			<?php endif; ?>
+
+		</div>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle"><?php _e( 'Primary Menu', 'brosco' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		</nav><!-- #site-navigation -->
+
+</div>
+
+	</header><!-- #masthead -->
+
+
+
+	<div id="content" class="site-content">
